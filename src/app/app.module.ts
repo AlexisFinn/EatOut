@@ -10,6 +10,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import {PlacesRoutingModule} from './places/places-routing.module';
 import {PlacesModule} from './places/places.module';
+import {AngularFireModule} from 'angularfire2';
+import {environment} from '../environments/environment';
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import {PlacesModule} from './places/places.module';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
     SharedModule,
     NgbModule.forRoot(),
     HomeModule,
