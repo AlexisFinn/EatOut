@@ -1,0 +1,148 @@
+
+
+$orange:          #FF7900;
+$orange-darken-1: #F16E00;
+$orange-darken-2: #C15800;
+$orange-darken-3: #914200;
+
+
+$white:          #FFFFFF;
+// $grey-lighten-6: #FAFAFA;
+// $grey-lighten-5: #F6F6F6;
+// $grey-lighten-4: #EEEEEE;
+// $grey-lighten-3: #E6E6E6;
+$grey-lighten-2: #EDEDED;
+$grey-lighten-1: #CCCCCC;
+$grey:           #999999;
+// $grey-darken-1:  #666666;
+// $grey-darken-2:  #595959;
+// $grey-darken-3:  #4D4D4D;
+// $grey-darken-4:  #444444;
+// $grey-darken-5:  #333333;
+$black:          #000000;
+
+$yellow:          #FFD200;
+$yellow-darken-1: #FFCC00;
+
+$blue: #005bbb;
+$blue-lighten-1: lighten($blue, 25%);
+$blue-lighten-2: lighten($blue, 55%);
+
+// $blue:           #527EDB;
+
+// $green-lighten-3: #C1EEC1;
+// $green-lighten-2: #50BE87;
+// $green-lighten-1: #32C832;
+$green:           #28A028;
+$green-darken-1:  #1E781E;
+
+$purple: #A885D8;
+
+$teal: #009688;
+
+// $pink: #FFB4E6;
+
+$red-lighten-1: #DC3C14;
+$red:           #CD3C14;
+$red-darken-1:  #B03010;
+$red-darken-2:  #84240C;
+
+// $beige:          #FBD3B2;
+// $beige-darken-1: #F4C4B8;
+
+$colors: (
+        "black": $black,
+        "white": $white,
+        "orange": $orange,
+        "orange-darken-3": $orange-darken-3,
+        "orange-darken-2": $orange-darken-2,
+        "orange-darken-1": $orange-darken-1,
+        // 'grey-lighten-6': $grey-lighten-6,
+        // 'grey-lighten-5': $grey-lighten-5,
+        // 'grey-lighten-4': $grey-lighten-4,
+        // 'grey-lighten-3': $grey-lighten-3,
+        'grey-lighten-2': $grey-lighten-2,
+        "grey-lighten-1": $grey-lighten-1,
+        "grey": $grey,
+        // "grey-darken-1": $grey-darken-1,
+        // "grey-darken-2": $grey-darken-2,
+        // "grey-darken-3": $grey-darken-3,
+        // 'grey-darken-4': $grey-darken-4,
+        // "grey-darken-5": $grey-darken-5,
+        'yellow': $yellow,
+        'yellow-darken-1': $yellow-darken-1,
+        //'blue-lighten-1': $blue-lighten-1,
+        'blue': $blue,
+        // 'green-lighten-3': $green-lighten-3,
+        // 'green-lighten-2': $green-lighten-2,
+        // 'green-lighten-1': $green-lighten-1,
+        // 'green': $green,
+        // 'green-darken-1': $green-darken-1,
+        'purple' : $purple,
+        'teal': $teal,
+        // 'pink' : $pink,
+        'red-lighten-1' : $red-lighten-1,
+        'red' : $red,
+        // 'red-darken-1' : $red-darken-1,
+        // 'red-darken-2' : $red-darken-2,
+        // 'beige' : $beige,
+        // 'beige-darken-1' : $beige-darken-1,
+);
+
+// Color Classes
+@each $color_name, $color in $colors {
+    .#{$color_name} {
+        background-color: $color !important;
+    }
+    .#{$color_name}-text {
+        color: $color !important;
+    }
+    .#{$color_name}-border {
+        border: 1px solid $color !important;
+    }
+    .#{$color_name}-border-left {
+        border-left: 1px solid $color !important;
+    }
+    .#{$color_name}-border-right {
+        border-right: 1px solid $color !important;
+    }
+    .#{$color_name}-border-top {
+        border-top: 1px solid $color !important;
+    }
+    .#{$color_name}-border-bottom {
+        border-bottom: 1px solid $color !important;
+    }
+
+    .b-#{$color_name} {
+        border-color: $color !important;
+    }
+    .bt-#{$color_name} {
+        border-top-color: $color !important;
+    }
+    .br-#{$color_name} {
+        border-right-color: $color !important;
+    }
+    .bb-#{$color_name} {
+        border-bottom-color: $color !important;
+    }
+    .bl-#{$color_name} {
+        border-left-color: $color !important;
+    }
+
+    .#{$color_name}-expose {
+        @extend .#{$color_name};
+        padding: 10px;
+        font-size: bold;
+        @if (lightness($color) > 40) {
+            color: #000000;
+        } @else {
+            color: #ffffff;
+        }
+        &:after {
+            content: "#{$color}";
+        }
+        &:before {
+            content: "$#{$color_name}:";
+        }
+    }
+}

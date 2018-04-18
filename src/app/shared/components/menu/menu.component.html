@@ -1,0 +1,20 @@
+<nav class="navbar navbar-light bg-light row">
+  <div class="col-sm-4">
+    <a href="" class="navbar-brand">
+      <img src="assets/img/avatar.png" alt="Logo" width="30" height="30">
+      Welcome to {{ company }} Eat Out!
+    </a>
+  </div>
+  <div class="col"[ngbCollapse]="isNavbarCollapsed">
+    <a routerLink="/places" class="nav-item nav-link">Places</a>
+  </div>
+  <div class="col"[ngbCollapse]="isNavbarCollapsed">
+    <a href="" class="nav-item nav-link active">Item 2</a>
+  </div>
+  <div class="col">
+    <button class="navbar-toggler pull-right" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+

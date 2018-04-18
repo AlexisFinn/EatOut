@@ -1,0 +1,44 @@
+// $name: name of the class (will be suffixed with numerical value)
+// $iterations: number of values to generate.
+// $property: the css property to generate
+// $unit: the unit to use, if no unit is specified then px is used.
+@mixin make-numeric-class($name, $iterations, $property, $unit:false) {
+    @for $i from 0 through $iterations{
+        @if $unit {
+            .#{$name + $i} {
+                #{$property}: #{$i + $unit} !important;
+            }
+        }
+        @else {
+            .#{$name + $i} {
+                #{$property}: #{$i}px !important;
+            }
+        }
+    }
+}
+
+// permet de generer des separateurs verticaux de x pixels ou x > 2 et x <= $iterations
+@mixin make-vseparator-classes($iterations) {
+    @for $i from 2 through $iterations{
+        .v-separator-#{$i} {
+            content: '';
+            display: block;
+            padding: #{$i}px 0;
+        }
+    }
+}
+
+// Fonction de debug permetant d'entourer les elements de la classe
+// passé en armument en rouge,
+// et optionellement de rajouter un fond bleu-clair.
+@mixin debug($class, $with-background:false) {
+    .#{$class} {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        border: 1px solid red;
+        @if $with-background {
+            background-color: rgba(lightblue, .7);
+        }
+    }
+}
